@@ -27,11 +27,11 @@ function actionUpdateJob(jobName){
 
 
 const SHOW_FORM = 'SHOW_FORM';
-function actionShowForm(){
+function actionShowForm(jobs, contacts){
     return {
         type: SHOW_FORM,
         payload: {
-            job,
+            jobs,
             contacts 
         }
     }
@@ -105,9 +105,11 @@ const store = createStore (
 );
 
 
+store.subscribe(()=>{
+    console.table(store.getState())
+});
 
-
-
+store.dispatch(actionShowForm());
 
 
 
