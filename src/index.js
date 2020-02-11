@@ -60,6 +60,12 @@ function jobs (state= defaultJobState, action){
     return newState;
 }
 
+const rootReducer = combineReducers (
+    {
+        contacts: contacts,
+        jobs: jobs
+    }
+)
 
 
 
