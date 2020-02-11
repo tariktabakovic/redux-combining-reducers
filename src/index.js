@@ -26,6 +26,17 @@ function actionUpdateJob(jobName){
 }
 
 
+const SHOW_FORM = 'SHOW_FORM';
+function actionShowForm(){
+    return {
+        type: SHOW_FORM,
+        payload: {
+            job,
+            contacts 
+        }
+    }
+}
+
 
 
 
@@ -60,10 +71,31 @@ function jobs (state= defaultJobState, action){
     return newState;
 }
 
+
+const defaultFormVisible = {
+    contact: '',
+    job: ''
+}
+function form (state= defaultFormVisible, action){
+    const newState = {...state};
+    switch(action.type){
+        case SHOW_FORM:
+            newState.job = action.payload.job;
+            newState.contact = action.payload.contact;
+            break;
+        default:
+            break;
+    }
+    return newState;
+}
+
+
+
 const rootReducer = combineReducers (
     {
         contacts: contacts,
-        jobs: jobs
+        jobs: jobs,
+        form: form
     }
 )
 
