@@ -45,6 +45,22 @@ function contacts (state= defaultContactSate, action){
 }
 
 
+const defaultJobState = {
+    job: ''
+}
+function jobs (state= defaultJobState, action){
+    const newState = {...state};
+    switch(action.type){
+        case UPDATE_JOBS:
+            newState.job = action.payload.jobName;
+            break;
+        default:
+            break;
+    }
+    return newState;
+}
+
+
 
 
 
